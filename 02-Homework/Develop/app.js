@@ -164,6 +164,42 @@ function newEngineer() {
 })
 }
 
+function newIntern() {
+    inquirer.prompt([{
+        type: "input",
+        name: "name",
+        message: "What is the interns name?",
+        validate: name => {
+            if (!name.length) {
+                console.log("\nPlease enter a name.")
+                return false;
+            } else {
+                return true;
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "id",
+        message: "What is their employee id?",
+        validate: id => {
+            if (isNaN(parseInt(id))) {
+                console.log("\nEmployee id should be a number");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "What is their company email?",
+        validate:
+    }
+])
+}
+
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
