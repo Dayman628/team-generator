@@ -73,6 +73,32 @@ function init() {
     });
 }
 
+function newEmployee() {
+    inquirer.prompt(
+        {
+            type: "list",
+            name: "role",
+            message: "What is the next employees role?",
+            choices: [
+                "Engineer",
+                "Intern"
+            ]
+        }
+    ).then(date => {
+        if (data.role === "Engineer") {
+            newEngineer();
+        } else {
+            newIntern();
+        }
+    })
+}
+
+function newEngineer() {
+    inquirer.prompt([{
+        type: "input",
+    }])
+}
+
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
