@@ -96,7 +96,72 @@ function newEmployee() {
 function newEngineer() {
     inquirer.prompt([{
         type: "input",
-    }])
+        name: "name",
+        message: "What is the engineer's name?",
+        validate: name => {
+            if (!name.length) {
+                console.log("\nPlease enter a name.")
+                return false;
+            } else {
+                return true;
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "id",
+        message: "What is their employee id?",
+        validate: id => {
+            if (isNaN(parseInt(id))) {
+                console.log("\nEmployee id should be a number");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "What is their company email?",
+        validate: email => {
+            const valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+
+            if (valid) {
+                return true;
+            } else {
+                console.log("\nPlease enter a valid email")
+                return false;
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "github",
+        message: "What is their GitHub username?",
+        validate: username => {
+            if (!username.length) {
+                console.log("\nPlease enter a name.")
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+]).then(data => {
+    employees.push(new Engineer(data.name, data.id, data.email, data.github));
+    inquirer.prompt({
+        type: "confirm",
+        name: "additional",
+        message: "Add another employee?"
+    }).then(data => {
+        if (data.additional === true) {
+            newEmployee();
+        } else {
+            renderAndSave()
+        }
+    })
+})
 }
 
 // Write code to use inquirer to gather information about the development team members,
