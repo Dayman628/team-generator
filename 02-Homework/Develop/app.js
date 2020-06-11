@@ -205,9 +205,21 @@ function newIntern() {
         }
     },
     {
-        
+        type: "input",
+        name: "school",
+        message: "What school do they attend?",
+        validate: school => {
+            if (!school.length) {
+                console.log("\nPlease enter a school")
+                return false;
+            } else {
+                return true;
+            }
+        }
     }
-])
+]).then(data => {
+    employees.push(new Intern)
+})
 }
 
 // Write code to use inquirer to gather information about the development team members,
