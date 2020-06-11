@@ -233,8 +233,17 @@ function newIntern() {
 })
 }
 
-function
+function renderAndSave() {
+    const html = render(employees);
+    fs.writeFile(outputPath, html, err => {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("team.html save");
+    })
+}
 
+init();
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
