@@ -25,7 +25,36 @@ function init() {
                 return true;
             }
         }
-    }])
+    },
+    {
+        type: "input",
+        name: "id",
+        message: "What is their employee id?",
+        validate: id => {
+            if (isNaN(parseInt(id))) {
+                console.log("\nEmployee id should be a number");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "What is their company email?",
+        validate: email => {
+            const valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+
+            if (valid) {
+                return true;
+            } else {
+                console.log("\nPlease enter a valid email")
+                return false;
+            }
+        }
+    },
+])
 }
 
 // Write code to use inquirer to gather information about the development team members,
