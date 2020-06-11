@@ -195,7 +195,17 @@ function newIntern() {
         type: "input",
         name: "email",
         message: "What is their company email?",
-        validate:
+        validate: email => {
+            const valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+            if (valid) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    },
+    {
+        
     }
 ])
 }
