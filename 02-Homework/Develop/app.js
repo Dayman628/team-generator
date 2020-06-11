@@ -54,7 +54,23 @@ function init() {
             }
         }
     },
-])
+    {
+        type: "input",
+        name: "officeNumber",
+        message: "What is their office number?",
+        validate: num => {
+            if (isNaN(parseInt(num))) {
+                console.log("\nEmployee id should be a number");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+    ]).then(date => {
+        employees.push(new Manager(data.name, data.id, data.email, data.officeNumber));
+        newEmployee();
+    });
 }
 
 // Write code to use inquirer to gather information about the development team members,
