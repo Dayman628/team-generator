@@ -218,9 +218,22 @@ function newIntern() {
         }
     }
 ]).then(data => {
-    employees.push(new Intern)
+    employees.push(new Intern(data.name, data.id, data.email, data.school));
+    inquirer.prompt({
+        type: "confirm",
+        name: "additional",
+        message: "Add another employee?"
+    }).then(data => {
+        if (data.additional === true) {
+            newEmployee();
+        } else {
+            renderAndSave();
+        }
+    })
 })
 }
+
+function
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
