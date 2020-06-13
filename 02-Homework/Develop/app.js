@@ -84,7 +84,7 @@ function newEmployee() {
                 "Intern"
             ]
         }
-    ).then(date => {
+    ).then(data => {
         if (data.role === "Engineer") {
             newEngineer();
         } else {
