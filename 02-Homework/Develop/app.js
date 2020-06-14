@@ -67,7 +67,7 @@ function init() {
             }
         }
     }
-    ]).then(date => {
+    ]).then(data => {
         employees.push(new Manager(data.name, data.id, data.email, data.officeNumber));
         newEmployee();
     });
